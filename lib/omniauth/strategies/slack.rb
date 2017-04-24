@@ -75,6 +75,9 @@ module OmniAuth
       # The combination of user ID and team ID, on the other hand, is guaranteed
       # to be globally unique.
       uid { "#{auth['user_id'] || auth['user'].to_h['id']}-#{auth['team_id'] || auth['team'].to_h['id']}" }
+      
+      user_id { auth['user_id'] || auth['user'].to_h['id'] }
+      team_id { auth['team_id'] || auth['team'].to_h['id'] }
 
       info do
         # Start with only what we can glean from the authorization response.
